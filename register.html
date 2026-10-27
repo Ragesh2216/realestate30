@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Account - Stackly Real Estate</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .role-badge-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 1.25rem;
+        }
+        .role-badge-opt {
+            border: 2px solid var(--color-black);
+            padding: 10px 8px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: #fff;
+            color: #111;
+            transition: all 0.2s ease;
+        }
+        .role-badge-opt.active, .role-badge-opt:hover {
+            background: var(--color-black);
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .role-badge-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="site-wrapper">
+
+   
+
+    <!-- SECTION 1: STICKY HEADER -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="logo_0895.webp" alt="Stackly Real Estate Logo" class="site-logo-img">
+            </a>
+
+            <button class="mobile-nav-toggle" onclick="toggleMobileNav()" aria-label="Toggle Navigation" aria-expanded="false">&#9776;</button>
+
+            <nav class="main-navigation" aria-label="Primary Menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html" class="btn-primary active">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECTION 2: PAGE HEADER BANNER -->
+    <section class="page-header-banner">
+        <div class="section-tag">
+            <div></div>
+            Client & Investor Registration
+        </div>
+        <h1>Create Your Real Estate Account</h1>
+        <p>Unlock off-market luxury listings, personalized site tour scheduling, and portfolio analytics.</p>
+    </section>
+
+    <main class="site-main">
+
+        <!-- SECTION 3: REGISTRATION CARD BLOCK (REAL WEBP IMAGE) -->
+        <section class="section-block">
+            <div class="auth-grid">
+                <div>
+                    <div class="auth-container" style="max-width: 100%;">
+                        <h2>Join Stackly Real Estate</h2>
+                        <p style="margin-bottom: 1.5rem; color: #4b5563;">Complete the registration form to activate your private investor or client portal.</p>
+                        
+                        <form id="registerForm" onsubmit="handleRegister(event);">
+                            <div class="form-group">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 700;">Select Account Role</label>
+                                <div class="role-badge-group">
+                                    <div class="role-badge-opt active" data-role="client" onclick="selectRegRole(this, 'client')">
+                                        🏠 Buyer / Investor
+                                    </div>
+                                    <div class="role-badge-opt" data-role="seller" onclick="selectRegRole(this, 'seller')">
+                                        🏢 Property Seller
+                                    </div>
+                                    <div class="role-badge-opt" data-role="admin" onclick="selectRegRole(this, 'admin')">
+                                        🛡️ Agent / Admin
+                                    </div>
+                                </div>
+                                <input type="hidden" id="register-role" value="client">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-fullname">Full Name</label>
+                                <input type="text" id="reg-fullname" class="form-control" placeholder="e.g. Eleanor Vance" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-email">Email Address</label>
+                                <input type="email" id="reg-email" class="form-control" placeholder="eleanor@example.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-phone">Phone Number</label>
+                                <input type="tel" id="reg-phone" class="form-control" placeholder="+1 (555) 019-2834" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-preference">Primary Real Estate Interest</label>
+                                <select id="reg-preference" class="form-control" style="background-color: #fff;">
+                                    <option value="luxury-homes">Luxury Residential Homes & Villas</option>
+                                    <option value="penthouses">Downtown Sky Penthouses</option>
+                                    <option value="commercial">Commercial Real Estate & Leasing</option>
+                                    <option value="investments">High-Yield Investment Portfolios</option>
+                                    <option value="plots">Land Parcels & Development Plots</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-password">Password</label>
+                                <input type="password" id="reg-password" class="form-control" placeholder="Minimum 8 characters" required minlength="8">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reg-confirm-password">Confirm Password</label>
+                                <input type="password" id="reg-confirm-password" class="form-control" placeholder="Re-enter your password" required minlength="8">
+                            </div>
+
+                            <div style="margin-bottom: 1.25rem;">
+                                <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; cursor: pointer; color: #374151;">
+                                    <input type="checkbox" required style="margin-top: 4px;">
+                                    <span>I agree to the <a href="404.html" style="color: #000; font-weight: 700; text-decoration: underline;">Terms of Service</a> and <a href="404.html" style="color: #000; font-weight: 700; text-decoration: underline;">Privacy Policy</a>.</span>
+                                </label>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; cursor: pointer; color: #374151;">
+                                    <input type="checkbox" checked style="margin-top: 4px;">
+                                    <span>Send me curated off-market luxury listings and real estate market reports.</span>
+                                </label>
+                            </div>
+
+                            <button type="submit" id="reg-submit-btn" class="btn-primary" style="width: 100%; font-size: 1.05rem; padding: 14px;">Create Account</button>
+                        </form>
+
+                        <div id="reg-alert" style="display: none; margin-top: 1rem; padding: 12px; background: #ecfdf5; border: 1px solid #10b981; border-radius: 8px; color: #065f46; font-size: 0.95rem;">
+                            Account created successfully! Redirecting to login page...
+                        </div>
+
+                        <div style="text-align: center; margin-top: 1.5rem; border-top: 1px solid #e5e7eb; padding-top: 1rem;">
+                            <p style="font-size: 0.9rem;">Already have an account? <a href="login.html" style="color: var(--color-black); font-weight: 700; text-decoration: underline;">Sign In Here</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="border: 2px solid #000; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                        <img src="images/build3.webp" alt="Luxury Real Estate Portfolio" class="img-fluid" style="width: 100%; max-height: 380px; object-fit: cover;">
+                        <div style="padding: 1.75rem;">
+                            <div class="section-tag" style="margin-bottom: 0.5rem;">
+                                <div></div>
+                                Exclusive Member Privileges
+                            </div>
+                            <h3 style="margin-bottom: 0.75rem; font-size: 1.35rem;">Premium Portal Features</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; color: #374151;">
+                                <li style="display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: #10b981; font-weight: 800;">✓</span>
+                                    <span><strong>Off-Market Access:</strong> Over 150+ unlisted luxury properties.</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: #10b981; font-weight: 800;">✓</span>
+                                    <span><strong>Instant Tour Scheduling:</strong> Direct calendar sync with certified brokers.</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: #10b981; font-weight: 800;">✓</span>
+                                    <span><strong>Digital Vault:</strong> Safe storage for contracts, appraisals & title deeds.</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 10px;">
+                                    <span style="color: #10b981; font-weight: 800;">✓</span>
+                                    <span><strong>Investment Yield Analytics:</strong> Real-time ROI and neighborhood appreciation.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: SECURITY & CONFIDENTIALITY -->
+        <section class="section-block">
+            <div class="section-title-wrap">
+                <div class="section-tag">
+                    <div></div>
+                    Bank-Grade Protection
+                </div>
+                <h2>Your Privacy Is Our Priority</h2>
+                <p>We enforce rigorous confidentiality protocols for all high-net-worth clients and portfolio records.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" style="text-align: center;">
+                    <h3>🔒 256-Bit SSL Encryption</h3>
+                    <p>All sensitive documents, financial disclosures, and communications are safeguarded.</p>
+                </div>
+                <div class="service-card" style="text-align: center;">
+                    <h3>🛡️ Zero Third-Party Sharing</h3>
+                    <p>We never sell or distribute your contact details, financial capacity, or buying intentions.</p>
+                </div>
+                <div class="service-card" style="text-align: center;">
+                    <h3>📑 Verified Brokerage</h3>
+                    <p>Fully compliant with National Real Estate Standards, escrow compliance, and licensing laws.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: HOW IT WORKS -->
+        <section class="section-block">
+            <div class="section-title-wrap">
+                <div class="section-tag">
+                    <div></div>
+                    Simple Onboarding
+                </div>
+                <h2>Three Steps To Your Next Property</h2>
+                <p>Designed to make luxury acquisitions and sales transparent and effortless.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div style="font-size: 2rem; font-weight: 800; color: #111; margin-bottom: 8px;">01</div>
+                    <h3>Create Your Account</h3>
+                    <p>Register in less than 2 minutes and select your property acquisition or selling preferences.</p>
+                </div>
+                <div class="service-card">
+                    <div style="font-size: 2rem; font-weight: 800; color: #111; margin-bottom: 8px;">02</div>
+                    <h3>Browse & Book Tours</h3>
+                    <p>Explore high-resolution listings, 3D floor plans, and arrange private on-site showings.</p>
+                </div>
+                <div class="service-card">
+                    <div style="font-size: 2rem; font-weight: 800; color: #111; margin-bottom: 8px;">03</div>
+                    <h3>Offer & Close Safely</h3>
+                    <p>Manage offers, negotiations, and closing paperwork seamlessly via your secure client portal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: REGISTRATION FAQ -->
+        <section class="section-block">
+            <div class="section-title-wrap">
+                <div class="section-tag">
+                    <div></div>
+                    Help Center
+                </div>
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about client registration and portal access.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Is registering an account free?</h3>
+                    <p>Yes. Creating an account is 100% free with no commitment or hidden subscription fees for buyers and property seekers.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Can I use this portal to sell my property?</h3>
+                    <p>Yes! Simply select "Property Seller" or contact your advisor inside the portal to request a complimentary home valuation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>What if I am a licensed broker?</h3>
+                    <p>Select "Agent / Admin" to request access to the Stackly Real Estate Brokerage & Operations Command Portal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: SUPPORT & HOTLINE ASSISTANCE -->
+        <section class="section-block" style="text-align: center;">
+            <div class="section-tag">
+                <div></div>
+                Personalized Service
+            </div>
+            <h2>Need Help Registering?</h2>
+            <p>Our client concierge team is on standby to assist you with registration or private portfolio inquiries.</p>
+            <div style="margin-top: 1.25rem; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:+18005550199" class="btn-primary">📞 Call Concierge: +1 (800) 555-0199</a>
+                <a href="404.html" class="btn-secondary">Send Direct Message</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SECTION 8: SITE FOOTER WITH logo_0895.webp -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="index.html">
+                    <img src="logo_0895.webp" alt="Stackly Real Estate Logo" class="footer-logo-img">
+                </a>
+                <p>Premier real estate firm delivering exceptional property buying, selling, and investment services with total integrity.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="properties.html">Property Listings</a></li>
+                    <li><a href="about.html">About Company</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="404.html">Luxury Home Sales</a></li>
+                    <li><a href="404.html">Commercial Leasing</a></li>
+                    <li><a href="404.html">Property Management</a></li>
+                    <li><a href="404.html">Valuation Advisory</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+18005550199">📞 +1 (800) 555-0199</a></li>
+                    <li><a href="mailto:info@realestate.example">✉️ info@stackly.example</a></li>
+                    <li><a href="contact.html">📍 123 Prime Tower, Suite 500</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Real Estate Stackly Theme. All rights reserved. 8 Sections Standard.</p>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+function selectRegRole(el, role) {
+    document.querySelectorAll('.role-badge-opt').forEach(opt => opt.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('register-role').value = role;
+    const btn = document.getElementById('reg-submit-btn');
+    if (role === 'admin') {
+        btn.textContent = 'Register As Agent / Admin';
+    } else if (role === 'seller') {
+        btn.textContent = 'Register As Property Seller';
+    } else {
+        btn.textContent = 'Create Free Buyer Account';
+    }
+}
+
+function handleRegister(e) {
+    e.preventDefault();
+    const pass = document.getElementById('reg-password').value;
+    const confirmPass = document.getElementById('reg-confirm-password').value;
+    if (pass !== confirmPass) {
+        alert('Passwords do not match. Please verify your password entries.');
+        return;
+    }
+    const role = document.getElementById('register-role').value;
+    const alertBox = document.getElementById('reg-alert');
+    alertBox.style.display = 'block';
+    alertBox.scrollIntoView({ behavior: 'smooth' });
+
+    setTimeout(() => {
+        window.location.href = 'login.html';
+    }, 1200);
+}
+</script>
+
+<script src="main.js"></script>
+</body>
+</html>

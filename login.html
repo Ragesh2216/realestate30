@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal Login - Stackly Real Estate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="site-wrapper">
+
+  
+
+    <!-- SECTION 1: STICKY HEADER -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="logo_0895.webp" alt="Stackly Real Estate Logo" class="site-logo-img">
+            </a>
+
+            <button class="mobile-nav-toggle" onclick="toggleMobileNav()" aria-label="Toggle Navigation" aria-expanded="false">&#9776;</button>
+
+            <nav class="main-navigation" aria-label="Primary Menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="login.html" class="active">Login</a></li>
+                    <li><a href="register.html" class="btn-primary">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECTION 2: PAGE HEADER BANNER -->
+    <section class="page-header-banner">
+        <div class="section-tag">
+            <div></div>
+            Client Portal
+        </div>
+        <h1>Account Authentication</h1>
+        <p>Sign in to access your saved properties, private agent messages, and portfolio analytics.</p>
+    </section>
+
+    <main class="site-main">
+
+        <!-- SECTION 3: AUTHENTICATION CARD BLOCK (REAL WEBP IMAGE) -->
+        <section class="section-block">
+            <div class="auth-grid">
+                <div>
+                    <div class="auth-container" style="max-width: 100%;">
+                        <h2>Welcome Back</h2>
+                        <p>Select your portal role and enter your credentials to access your real estate dashboard.</p>
+                        
+                        <form id="loginForm" onsubmit="handleLoginSubmit(event);">
+                            <!-- Role Selection: Admin & Client -->
+                            <div class="form-group">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 700;">Select Account Role</label>
+                                <div class="role-selector" id="roleSelector">
+                                    <div class="role-option active" data-role="client" onclick="selectLoginRole('client')">
+                                        <span style="font-size: 1.2rem; display: block; margin-bottom: 2px;">👤</span>
+                                        <span>Client</span>
+                                    </div>
+                                    <div class="role-option" data-role="admin" onclick="selectLoginRole('admin')">
+                                        <span style="font-size: 1.2rem; display: block; margin-bottom: 2px;">🛡️</span>
+                                        <span>Admin</span>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="login-role" name="role" value="client">
+                                <p id="role-hint" style="font-size: 0.85rem; color: #4b5563; margin-top: -0.5rem; margin-bottom: 1rem;">
+                                    Accessing Client Property Portal (user.html)
+                                </p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="login-email">Email Address</label>
+                                <input type="email" id="login-email" class="form-control" placeholder="name@example.com" value="client@stackly.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <input type="password" id="login-password" class="form-control" placeholder="••••••••" value="••••••••" required>
+                            </div>
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
+                                    <input type="checkbox" checked> Remember Me
+                                </label>
+                                <a href="404.html" style="font-size: 0.9rem; color: var(--color-gold);">Forgot Password?</a>
+                            </div>
+
+                            <button type="submit" id="login-submit-btn" class="btn-primary" style="width: 100%;">Sign In As Client</button>
+                        </form>
+
+                        <script>
+                            function selectLoginRole(role) {
+                                document.querySelectorAll('.role-option').forEach(el => el.classList.remove('active'));
+                                const activeOpt = document.querySelector(`.role-option[data-role="${role}"]`);
+                                if (activeOpt) activeOpt.classList.add('active');
+                                
+                                const roleInput = document.getElementById('login-role');
+                                const emailInput = document.getElementById('login-email');
+                                const submitBtn = document.getElementById('login-submit-btn');
+                                const roleHint = document.getElementById('role-hint');
+
+                                roleInput.value = role;
+
+                                if (role === 'admin') {
+                                    emailInput.value = 'admin@stackly.com';
+                                    submitBtn.textContent = 'Sign In As Administrator';
+                                    roleHint.textContent = 'Accessing Brokerage & Operations Command Dashboard (admin.html)';
+                                } else {
+                                    emailInput.value = 'client@stackly.com';
+                                    submitBtn.textContent = 'Sign In As Client';
+                                    roleHint.textContent = 'Accessing Client Property Portal & Portfolio (user.html)';
+                                }
+                            }
+
+                            function handleLoginSubmit(event) {
+                                event.preventDefault();
+                                const role = document.getElementById('login-role').value;
+                                if (role === 'admin') {
+                                    window.location.href = 'admin.html';
+                                } else {
+                                    window.location.href = 'user.html';
+                                }
+                            }
+                        </script>
+
+                        <div style="text-align: center; margin-top: 1.5rem; border-top: 1px solid #e5e7eb; padding-top: 1rem;">
+                            <p style="font-size: 0.9rem;">Don't have an account? <a href="register.html" style="color: var(--color-black); font-weight: 700; text-decoration: underline;">Register New Account Here</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <img src="images/blogbg.webp" alt="Secure Client Portal" class="img-fluid" style="max-height: 450px; width: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: SECURITY GUARANTEE -->
+        <section class="section-block">
+            <div class="section-title-wrap">
+                <div class="section-tag">
+                    <div></div>
+                    Bank-Grade Protection
+                </div>
+                <h2>256-Bit SSL Encrypted Access</h2>
+                <p>Your privacy and portfolio confidentiality are safeguarded by advanced encryption systems.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" style="text-align: center;">
+                    <h3>🔒 Encrypted Sessions</h3>
+                    <p>All client communications and financial document access are protected by SSL security protocols.</p>
+                </div>
+                <div class="service-card" style="text-align: center;">
+                    <h3>📱 Multi-Factor Security</h3>
+                    <p>Optional 2FA phone verification available for high-value portfolio accounts.</p>
+                </div>
+                <div class="service-card" style="text-align: center;">
+                    <h3>🛡️ Strict Privacy</h3>
+                    <p>We strictly never monetize or disclose your real estate search history or identity.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CLIENT PORTAL FEATURES -->
+        <section class="section-block">
+            <div class="section-title-wrap">
+                <div class="section-tag">
+                    <div></div>
+                    Dashboard Features
+                </div>
+                <h2>What You Can Do In Your Portal</h2>
+                <p>Designed to simplify property management, tour scheduling, and agreement signing.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>⭐ Saved Properties</h3>
+                    <p>Bookmark your favorite luxury listings and receive instant price change alerts.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📅 Tour Bookings</h3>
+                    <p>View and modify upcoming private viewing schedules with your dedicated advisor.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📄 Digital Contracts</h3>
+                    <p>Review, sign, and store purchase agreements securely online.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: AUTHENTICATION FAQ -->
+        <section class="section-block">
+            <div class="section-title-wrap">
+                <div class="section-tag">
+                    <div></div>
+                    Help Center
+                </div>
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common login and account access queries.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>How do I reset my password?</h3>
+                    <p>Click the "Forgot Password?" link on the login form to receive a secure password reset link via email.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Who can access the client portal?</h3>
+                    <p>Verified home buyers, property sellers, landlords, and investment clients registered with Stackly Real Estate.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: SUPPORT & HOTLINE ASSISTANCE -->
+        <section class="section-block" style="text-align: center;">
+            <div class="section-tag">
+                <div></div>
+                Need Assistance?
+            </div>
+            <h2>Trouble Logging In?</h2>
+            <p>Our client support desk is ready to help you recover access to your portal.</p>
+            <div style="margin-top: 1rem; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:+18005550199" class="btn-primary">📞 Call Support: +1 (800) 555-0199</a>
+                <a href="404.html" class="btn-secondary">Submit Support Ticket</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SECTION 8: SITE FOOTER WITH logo_0895.webp -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="index.html">
+                    <img src="logo_0895.webp" alt="Stackly Real Estate Logo" class="footer-logo-img">
+                </a>
+                <p>Premier real estate firm delivering exceptional property buying, selling, and investment services with total integrity.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="properties.html">Property Listings</a></li>
+                    <li><a href="about.html">About Company</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="404.html">Luxury Home Sales</a></li>
+                    <li><a href="404.html">Commercial Leasing</a></li>
+                    <li><a href="404.html">Property Management</a></li>
+                    <li><a href="404.html">Valuation Advisory</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+18005550199">📞 +1 (800) 555-0199</a></li>
+                    <li><a href="mailto:info@realestate.example">✉️ info@stackly.example</a></li>
+                    <li><a href="contact.html">📍 123 Prime Tower, Suite 500</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Real Estate Stackly Theme. All rights reserved. 8 Sections Standard.</p>
+        </div>
+    </footer>
+
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

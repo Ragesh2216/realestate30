@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found · Stackly Real Estate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Raleway:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .error-wrapper {
+            width: 100%;
+            max-width: 680px;
+            text-align: center;
+            background: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 16px;
+            padding: 3.5rem 2rem;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+        }
+        .error-logo {
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .error-logo img {
+            max-height: 52px;
+            width: auto;
+            object-fit: contain;
+        }
+        .error-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 6px 14px;
+            background: #000000;
+            color: #ffffff;
+            border-radius: 999px;
+            margin-bottom: 1.25rem;
+        }
+        .error-code {
+            font-family: 'Raleway', sans-serif;
+            font-size: clamp(5rem, 14vw, 8.5rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            color: #000000;
+            margin-bottom: 0.5rem;
+        }
+        .error-title {
+            font-family: 'Raleway', sans-serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+        .error-desc {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: #4b5563;
+            max-width: 480px;
+            margin: 0 auto 2.25rem auto;
+        }
+        .error-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-error-back {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-width: 160px;
+            padding: 14px 28px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #000000;
+            background: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-error-back:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+        .btn-error-home {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-width: 160px;
+            padding: 14px 28px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: #000000;
+            border: 2px solid #000000;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-error-home:hover {
+            background: #171717;
+            border-color: #171717;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 480px) {
+            .error-wrapper {
+                padding: 2.5rem 1.25rem;
+            }
+            .error-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn-error-back, .btn-error-home {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="error-wrapper">
+        <a href="index.html" class="error-logo" aria-label="Return to Stackly Real Estate Homepage">
+            <img src="logo_0895.webp" alt="Stackly Real Estate Logo">
+        </a>
+
+        <div>
+            <span class="error-badge">Notice 404 · Destination Unavailable</span>
+        </div>
+
+        <div class="error-code">404</div>
+
+        <h1 class="error-title">Property Or Page Not Found</h1>
+
+        <p class="error-desc">
+            The luxury residence, document, or portal page you requested is currently unavailable, archived, or does not exist.
+        </p>
+
+        <div class="error-actions">
+            <button type="button" class="btn-error-back" onclick="if (history.length > 1) { history.back(); } else { window.location.href = 'index.html'; }" aria-label="Go to previous page">
+                &larr; Back
+            </button>
+            <a href="index.html" class="btn-error-home" aria-label="Return to homepage">
+                Home &rarr;
+            </a>
+        </div>
+    </main>
+
+</body>
+</html>

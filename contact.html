@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Stackly Real Estate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="site-wrapper">
+
+
+    <!-- SECTION 1: STICKY HEADER -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="logo_0895.webp" alt="Stackly Real Estate Logo" class="site-logo-img">
+            </a>
+
+            <button class="mobile-nav-toggle" onclick="toggleMobileNav()" aria-label="Toggle Navigation" aria-expanded="false">&#9776;</button>
+
+            <nav class="main-navigation" aria-label="Primary Menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" class="active">Contact Us</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html" class="btn-primary">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SECTION 2: PAGE HEADER BANNER WITH REAL WEBP HERO -->
+    <section class="page-header-banner">
+        <img src="images/contact_hero.webp" alt="Contact Hero" class="img-fluid" style="margin: 0 auto 1.5rem auto; max-height: 350px; width: 100%; object-fit: cover;">
+        <div class="section-tag">
+            <div></div>
+            Get In Touch
+        </div>
+        <h1>Contact Our Advisory Team</h1>
+        <p>We are available 24/7 to assist with your real estate inquiries, property tours, and asset valuations.</p>
+    </section>
+
+    <main class="site-main">
+
+        <!-- SECTION 3: CONTACT INFO CARDS GRID BLOCK -->
+        <section class="section-block">
+            <div class="services-grid">
+                <div class="service-card" style="text-align: center;">
+                    <div class="why-card-icon">📞</div>
+                    <h3>Direct Hotline</h3>
+                    <p style="font-size: 1.2rem; font-weight: 700; color: var(--color-gold); margin-bottom: 0.5rem;">+1 (800) 555-0199</p>
+                    <p>Mon - Sun: 8:00 AM - 9:00 PM EST</p>
+                </div>
+
+                <div class="service-card" style="text-align: center;">
+                    <div class="why-card-icon">✉️</div>
+                    <h3>Email Support</h3>
+                    <p style="font-size: 1.2rem; font-weight: 700; color: var(--color-gold); margin-bottom: 0.5rem;">info@realestate.example</p>
+                    <p>Response guaranteed within 2 hours</p>
+                </div>
+
+                <div class="service-card" style="text-align: center;">
+                    <div class="why-card-icon">📍</div>
+                    <h3>Corporate HQ</h3>
+                    <p style="font-size: 1.1rem; font-weight: 700; color: var(--color-gold); margin-bottom: 0.5rem;">123 Prime Tower, Suite 500</p>
+                    <p>Beverly Hills, CA 90210</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: CONTACT FORM & BRANCHES GRID BLOCK -->
+        <section class="section-block">
+            <div class="contact-grid">
+                <div>
+                    <div class="section-tag">
+                        <div></div>
+                        Send Message
+                    </div>
+                    <h2>Request A Private Consultation</h2>
+                    <p>Fill out the form below and a senior advisor will reach out promptly.</p>
+                    
+                    <form action="404.html" method="GET">
+                        <div class="form-group">
+                            <label for="contact-fullname">Full Name</label>
+                            <input type="text" id="contact-fullname" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" class="form-control" placeholder="name@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Phone Number</label>
+                            <input type="tel" id="contact-phone" class="form-control" placeholder="+1 (800) 555-0199" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-interest">I Am Interested In</label>
+                            <select id="contact-interest" class="form-control">
+                                <option value="buy">Buying Property</option>
+                                <option value="sell">Selling Property</option>
+                                <option value="lease">Commercial Leasing</option>
+                                <option value="invest">Investment Advisory</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" class="form-control" placeholder="Tell us about your property goals..." style="min-height: 120px;" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Submit Inquiry</button>
+                    </form>
+                </div>
+
+                <!-- BRANCH LOCATIONS BOX -->
+                <div style="background-color: var(--color-card-bg); border: 2px solid var(--color-black); padding: 2.5rem; border-radius: var(--border-radius);">
+                    <h3 style="color: var(--color-black);">Global Branch Offices</h3>
+                    
+                    <div style="margin-top: 1.5rem; border-bottom: 1px solid var(--color-black); padding-bottom: 1rem;">
+                        <h3 style="font-size: 1.1rem; color: var(--color-black);">Beverly Hills Office</h3>
+                        <p style="margin-bottom: 0;">742 Evergreen Terrace, Beverly Hills, CA</p>
+                        <p style="font-size: 0.9rem;">Direct: +1 (310) 555-0144</p>
+                    </div>
+
+                    <div style="margin-top: 1rem; border-bottom: 1px solid var(--color-black); padding-bottom: 1rem;">
+                        <h3 style="font-size: 1.1rem; color: var(--color-black);">Manhattan Office</h3>
+                        <p style="margin-bottom: 0;">450 Park Avenue, 28th Floor, New York, NY</p>
+                        <p style="font-size: 0.9rem;">Direct: +1 (212) 555-0188</p>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <h3 style="font-size: 1.1rem; color: var(--color-black);">Miami Beach Office</h3>
+                        <p style="margin-bottom: 0;">100 Ocean Drive, Suite 1200, Miami, FL</p>
+                        <p style="font-size: 0.9rem;">Direct: +1 (305) 555-0122</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: OFFICE BUILDING SHOWCASE (REAL WEBP IMAGE) -->
+        <section class="section-block" style="text-align: center;">
+            <div class="section-tag">
+                <div></div>
+                Headquarters
+            </div>
+            <h2>Visit Our Corporate Tower</h2>
+            <p>123 Prime Tower, Suite 500, Beverly Hills, CA 90210</p>
+            <img src="images/bigb.webp" alt="Corporate Headquarters Tower" class="img-fluid" style="margin: 1.5rem auto; max-height: 420px; width: 100%; object-fit: cover;">
+        </section>
+
+        <!-- SECTION 6: OFFICE HOURS -->
+        <section class="section-block">
+            <div class="section-title-wrap">
+                <div class="section-tag">
+                    <div></div>
+                    Hours & Schedule
+                </div>
+                <h2>Advisory Office Hours</h2>
+                <p>Our virtual portal is open 24/7. Physical office visits are available by appointment.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" style="text-align: center;">
+                    <h3>📅 Monday - Friday</h3>
+                    <p style="color: var(--color-gold); font-weight: 700;">8:00 AM - 8:00 PM EST</p>
+                </div>
+                <div class="service-card" style="text-align: center;">
+                    <h3>📅 Saturday - Sunday</h3>
+                    <p style="color: var(--color-gold); font-weight: 700;">9:00 AM - 6:00 PM EST</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: EMERGENCY HOTLINE -->
+        <section class="section-block" style="text-align: center;">
+            <div class="section-tag">
+                <div></div>
+                Immediate Contact
+            </div>
+            <h2>Need An Immediate Valuation Or Showing?</h2>
+            <p>Speak directly with our senior on-duty real estate broker.</p>
+            <a href="404.html" class="btn-primary" style="margin-top: 1rem;">📞 Call Hotline: +1 (800) 555-0199</a>
+        </section>
+
+    </main>
+
+    <!-- SECTION 8: SITE FOOTER WITH logo_0895.webp -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="index.html">
+                    <img src="logo_0895.webp" alt="Stackly Real Estate Logo" class="footer-logo-img">
+                </a>
+                <p>Premier real estate firm delivering exceptional property buying, selling, and investment services with total integrity.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="properties.html">Property Listings</a></li>
+                    <li><a href="about.html">About Company</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="404.html">Luxury Home Sales</a></li>
+                    <li><a href="404.html">Commercial Leasing</a></li>
+                    <li><a href="404.html">Property Management</a></li>
+                    <li><a href="404.html">Valuation Advisory</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+18005550199">📞 +1 (800) 555-0199</a></li>
+                    <li><a href="mailto:info@realestate.example">✉️ info@realestate.example</a></li>
+                    <li><a href="contact.html">📍 123 Prime Tower, Suite 500</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Real Estate Stackly Theme. All rights reserved. Real WebP Assets.</p>
+        </div>
+    </footer>
+
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
