@@ -779,6 +779,47 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   text-decoration: underline;
 }
 
+/* Footer Social Icons */
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.footer-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  transition: all 0.25s ease;
+  text-decoration: none !important;
+}
+
+.footer-social-icon:hover,
+.footer-social-icon:focus {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.35);
+  text-decoration: none !important;
+}
+
+.footer-social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  stroke: currentColor;
+  transition: all 0.25s ease;
+}
+
 .footer-bottom {
   max-width: 1280px;
   margin: 0 auto;
